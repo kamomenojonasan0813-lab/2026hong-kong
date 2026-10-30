@@ -233,6 +233,72 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
 .jpn-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .jpn-chips span { font-size: 13px; font-weight: 700; background: var(--warn-soft); color: var(--warn); border-radius: 4px; padding: 2px 8px; }
 .day li .jl { display: block; margin-top: 3px; font-size: 13px; font-weight: 700; color: var(--warn); }
+/* ---- ホーム・今/次 ---- */
+.nowbar { max-width: 900px; margin: 6px auto 0; display: flex; align-items: center; gap: 8px; font-size: 12.5px; line-height: 1.5; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; cursor: pointer; color: var(--ink); text-decoration: none; min-width: 0; }
+.nowbar:focus-visible { outline: 3px solid var(--warn); outline-offset: 2px; }
+.nowbar .clk { font-family: var(--font-display); font-weight: 900; font-variant-numeric: tabular-nums; color: var(--accent); flex: none; }
+.nowbar .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nowbar .lbl { font-weight: 700; color: var(--warn); }
+.nowbar .lbl.nx { color: var(--accent); }
+.home { display: grid; gap: 14px; }
+.nowcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.nowcard .hd { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; background: var(--ink); color: var(--bg); padding: 10px 16px; }
+.nowcard .hd .big { font-family: var(--font-display); font-weight: 900; font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.nowcard .hd .sm { font-size: 12.5px; opacity: .85; }
+.nowcard .row { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 10px; padding: 12px 16px; border-top: 1px solid var(--line); align-items: start; }
+.nowcard .row:first-of-type { border-top: 0; }
+.nowcard .k { font-size: 12px; font-weight: 700; text-align: center; border-radius: 4px; padding: 2px 0; }
+.nowcard .k.now { background: var(--warn); color: #fff; }
+.nowcard .k.nx { background: var(--accent); color: #fff; }
+.nowcard .k.pv { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+:root[data-theme="dark"] .nowcard .k.now, :root[data-theme="dark"] .nowcard .k.nx { color: #05222b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nowcard .k.now, :root:not([data-theme="light"]) .nowcard .k.nx { color: #05222b; } }
+.nowcard .w { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.nowcard .w b { color: var(--accent); font-size: 14px; }
+.nowcard .tt { font-family: var(--font-display); font-weight: 700; font-size: 16.5px; line-height: 1.45; }
+.nowcard .pl { font-size: 12.5px; color: var(--muted); }
+.nowcard .go { font-size: 12.5px; font-weight: 700; }
+.nowcard .cd { display: inline-block; margin-left: 6px; font-size: 12px; font-weight: 700; color: var(--warn); }
+.homesec { display: grid; gap: 8px; }
+.homesec > h2 { font-size: 15px; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.tile { display: grid; gap: 2px; align-content: start; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 8px; padding: 10px 12px; min-height: 68px; }
+.tile:hover { border-color: var(--accent); }
+.tile:focus-visible { outline: 3px solid var(--warn); outline-offset: 2px; }
+.tile b { font-family: var(--font-display); font-size: 15.5px; line-height: 1.35; }
+.tile span { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.tile.race { border-top-color: var(--warn); }
+.tile.gold { border-top-color: var(--gold); }
+.tile.ok { border-top-color: var(--ok); }
+.tl { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.tl li { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; padding: 9px 14px; border-top: 1px solid var(--line); font-size: 14px; }
+.tl li:first-child { border-top: 0; }
+.tl li .t { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 1px; }
+.tl li.past { opacity: .5; }
+.tl li.cur { background: var(--warn-soft); box-shadow: inset 4px 0 0 var(--warn); }
+.tl li.nxt { background: var(--accent-soft); }
+.tl li a { color: inherit; text-decoration: none; }
+.tl li small { display: block; font-size: 12px; color: var(--muted); }
+.daypick { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.daypick::-webkit-scrollbar { display: none; }
+.daypick button { flex: none; font: inherit; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 99px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); cursor: pointer; }
+.daypick button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.daypick button:focus-visible { outline: 3px solid var(--warn); outline-offset: 2px; }
+.backhome { display: none; }
+@media (max-width: 560px) {
+  body { font-size: 14.5px; }
+  .hero { padding-top: 14px; padding-bottom: 12px; }
+  .hero .wrap { gap: 4px; }
+  .hero h1 { font-size: 23px; }
+  .hero .kicker { font-size: 11px; }
+  .hero .meta { font-size: 12.5px; gap: 2px 12px; }
+  .top-nav { padding-top: 6px; padding-bottom: 6px; }
+  .top-nav .tabbar [role="tab"] { font-size: 13.5px; padding: 7px 12px; }
+  .sub { margin: 12px 0 10px; }
+  .panel { padding: 14px; }
+  th, td { padding: 8px 10px; }
+  .top-set > .tp { padding-top: 14px; }
+}
 .foot { margin-top: 40px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 </style>
@@ -249,6 +315,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
 <div class="top-set tabset">
   <nav class="top-nav bleed" aria-label="メインメニュー">
     <div class="tabbar" role="tablist">
+      <button role="tab" data-t="home">ホーム</button>
       <button role="tab" data-t="schedule">全体スケジュール</button>
       <button role="tab" data-t="members">参加者</button>
       <button role="tab" data-t="events">大会</button>
@@ -258,7 +325,75 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       <button role="tab" data-t="map">地図</button>
       <button role="tab" data-t="hk">香港情報</button>
     </div>
+    <a class="nowbar" href="#home" data-goto="home" id="nowbar" aria-label="香港時間の今と次の予定。タップでホームへ"><span class="clk" id="nb-clk">--:--</span><span class="txt" id="nb-txt">香港時間を読み込み中</span></a>
   </nav>
+
+  <!-- ================= ホーム ================= -->
+  <div class="tp wrap" role="tabpanel" data-p="home">
+    <div class="home">
+      <div class="nowcard" aria-live="polite">
+        <div class="hd"><span class="big" id="hm-clk">--:--</span><span class="sm" id="hm-date">香港時間(HKT)</span></div>
+        <div id="hm-rows"></div>
+      </div>
+
+      <section class="homesec">
+        <h2>この日の予定</h2>
+        <div class="daypick" id="hm-days" role="group" aria-label="日付を選ぶ"></div>
+        <ul class="tl" id="hm-tl"></ul>
+        <p class="lead">時刻はすべて香港時間です(日本は1時間進んでいます)。各行をタップすると、くわしい情報へ移動します。内容は「全体スケジュール」と各タブの情報をまとめたものです。</p>
+      </section>
+
+      <section class="homesec">
+        <h2>大会 11/1(日)</h2>
+        <div class="tiles">
+          <a class="tile race" href="#list" data-goto="events:list"><b>日本選手の出場</b><span>12:45 Section-2 / 13:30 Section-3</span></a>
+          <a class="tile race" href="#entry" data-goto="events:entry"><b>エントリーリスト</b><span>全37名・JPNを強調</span></a>
+          <a class="tile race" href="#schedule" data-goto="schedule:d1"><b>11/1 の流れ</b><span>9:30 ロビー集合から</span></a>
+          <a class="tile race" href="#events" data-goto="events:venue"><b>会場・コース図</b><span>浅水湾の配置図</span></a>
+          <a class="tile race" href="#events" data-goto="events:rule"><b>大会規定</b><span>フィン・水着・スイムブイ</span></a>
+          <a class="tile race" href="#events" data-goto="events:wx"><b>天気・海況</b><span>予報と水温</span></a>
+          <a class="tile race" href="#events" data-goto="events:etc"><b>当日の貴重品など</b><span>そのほかの連絡</span></a>
+        </div>
+      </section>
+
+      <section class="homesec">
+        <h2>日程・移動</h2>
+        <div class="tiles">
+          <a class="tile" href="#schedule" data-goto="schedule:all"><b>全体スケジュール</b><span>10/30 – 11/2 の表</span></a>
+          <a class="tile" href="#travel" data-goto="travel&gt;sec-arr"><b>到着(往路)</b><span>便・お迎えのグループ</span></a>
+          <a class="tile" href="#travel" data-goto="travel&gt;sec-dep"><b>出発(復路)</b><span>便・ターミナル</span></a>
+          <a class="tile" href="#travel" data-goto="travel&gt;sec-night"><b>11/2 夜の便の方</b><span>18:00 / 20:30 ホテル発</span></a>
+          <a class="tile" href="#members" data-goto="members:all"><b>参加者</b><span>選手13名・引率2名</span></a>
+          <a class="tile" href="#map" data-goto="map"><b>地図</b><span>ホテル・会場・お店</span></a>
+        </div>
+      </section>
+
+      <section class="homesec">
+        <h2>ホテル・食事</h2>
+        <div class="tiles">
+          <a class="tile gold" href="#stay" data-goto="stay:info"><b>ホテル情報</b><span>チャーターハウス・ホテル</span></a>
+          <a class="tile gold" href="#stay" data-goto="stay:room"><b>部屋割り</b></a>
+          <a class="tile gold" href="#dinner" data-goto="dinner:plan"><b>3日間の食事</b><span>夕食の予定</span></a>
+          <a class="tile gold" href="#order" data-goto="dinner:order"><b>10/31 オーダー</b><span>Brunch Club &amp; Supper</span></a>
+          <a class="tile gold" href="#menu" data-goto="dinner:menu"><b>日本語メニュー</b><span>検索できます</span></a>
+        </div>
+      </section>
+
+      <section class="homesec">
+        <h2>香港情報</h2>
+        <div class="tiles">
+          <a class="tile ok" href="#hk" data-goto="hk:money"><b>通貨・レート</b><span>換算もできます</span></a>
+          <a class="tile ok" href="#hk" data-goto="hk:pay"><b>支払い・チップ</b></a>
+          <a class="tile ok" href="#hk" data-goto="hk:transit"><b>公共交通</b><span>MTR・バス・トラム</span></a>
+          <a class="tile ok" href="#hk" data-goto="hk:lang"><b>言語</b><span>使えるひとこと</span></a>
+          <a class="tile ok" href="#hk" data-goto="hk:manner"><b>公衆マナー</b></a>
+          <a class="tile ok" href="#hk" data-goto="hk:wc"><b>トイレ・水</b></a>
+        </div>
+      </section>
+
+      <p class="note">連絡は LINEグループ「2026HongKong OWS」へ。予定は競技会の状況で変更される場合があります。</p>
+    </div>
+  </div>
 
   <!-- ================= 全体スケジュール ================= -->
   <div class="tp wrap" role="tabpanel" data-p="schedule">
@@ -392,7 +527,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   <!-- ================= 到着・出発 ================= -->
   <div class="tp wrap" role="tabpanel" data-p="travel">
     <div class="stack">
-      <section>
+      <section id="sec-arr">
         <h3 class="h3">到着(往路)</h3>
         <p class="note" style="margin-bottom:10px">往路の便は<b>第1ターミナル(T1)</b>に到着します(小島さんの便のターミナルは未確認)。空港のお迎えは、10/30・10/31の到着便が対象です(集合場所は追って連絡)。ホテルのチェックインは10/30の12:00からです。</p>
         <div class="tbl"><table class="wide">
@@ -452,7 +587,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
         </div>
       </section>
 
-      <section style="margin-top:14px">
+      <section style="margin-top:14px" id="sec-dep">
         <h3 class="h3">出発(復路)</h3>
         <p class="note" style="margin-bottom:10px">ホテルのチェックアウトは<b>11/2の11:00まで</b>です。香港空港に新設されたT2は、香港エクスプレス(UO)の便で使います。キャセイ(CX)と全日空(NH)はT1です。香港エクスプレスの便の方は、T2へ車で送ってもらう手配です。空港は広いので、余裕をもって移動してください。</p>
         <div class="tbl"><table class="wide">
@@ -481,7 +616,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
         </ul></div>
       </section>
 
-      <section style="margin-top:14px">
+      <section style="margin-top:14px" id="sec-night">
         <h3 class="h3">11/2 夜中の便の方: ホテル発の時刻</h3>
         <div class="cols">
           <div class="panel"><div class="h3">① 18:00 ホテル発</div><p style="font-size:14px">荷物をホテルに預けて観光し、18:00にホテルへ戻って空港へ。早めに空港へ着いて食事をしたい方向けです。空港まで車で送迎されます。</p></div>
@@ -1291,6 +1426,111 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     renderEntry('all');
   }
 
+  /* ---------- ホーム: 香港時間の今・次 ---------- */
+  (function () {
+    function T(mo, d, h, mi) { return Date.UTC(2026, mo - 1, d, h - 8, mi || 0); }
+    /* 各タブに載っている予定をまとめたもの。e = 終了時刻(分かっているものだけ) */
+    var EV = [
+      {s:T(10,30,12), t:'各国の選手が到着、チェックイン(12:00から)', p:'チャーターハウス・ホテル', g:'schedule:d30'},
+      {s:T(10,30,18,30), t:'夕食(飲茶)', p:'飲茶のお店', g:'dinner:plan'},
+      {s:T(10,31,7,30), e:T(10,31,10), t:'朝食', p:'ホテル', g:'schedule:d31'},
+      {s:T(10,31,10,50), t:'小島 到着(UO625)', p:'香港国際空港', g:'travel>sec-arr', k:'到着'},
+      {s:T(10,31,11,30), t:'Mr. Max Chiu が空港へ', p:'香港国際空港', g:'travel>sec-arr', k:'到着'},
+      {s:T(10,31,12), e:T(10,31,14), t:'昼食', p:'ホテル', g:'schedule:d31'},
+      {s:T(10,31,12,40), t:'川久保・藤木・堀口 到着(UO857)', p:'香港国際空港 T1', g:'travel>sec-arr', k:'到着'},
+      {s:T(10,31,12,55), t:'長田 到着(NH859)', p:'香港国際空港 T1', g:'travel>sec-arr', k:'到着'},
+      {s:T(10,31,15), t:'ウォームアップ', p:'浅水湾(Repulse Bay)', g:'events:flow'},
+      {s:T(10,31,16,30), t:'チームリーダーミーティング', p:'', g:'events:flow'},
+      {s:T(10,31,18), t:'ホテルへ', p:'', g:'schedule:d31'},
+      {s:T(10,31,19), t:'夕食(English Restaurant)', p:'Brunch Club & Supper(銅鑼灣)', g:'dinner:order'},
+      {s:T(11,1,7), e:T(11,1,9,30), t:'朝食', p:'ホテル', g:'schedule:d1'},
+      {s:T(11,1,9,30), t:'ホテルロビーに集合し、浅水湾へ', p:'チャーターハウス・ホテル', g:'schedule:d1', hl:1},
+      {s:T(11,1,10), t:'召集(Marshaling)', p:'浅水湾 桟橋(天后・観音像の近く)', g:'events:list', hl:1},
+      {s:T(11,1,12), t:'Section-1 1000m スタート(日本選手の出場なし)', p:'浅水湾', g:'events:entry'},
+      {s:T(11,1,12,45), t:'Section-2 1000m マスターズ スタート', j:'JPN 8名: 堀口・山下・工藤・石本・仲間・兼田佑子・長田・川久保', p:'浅水湾', g:'events:list', hl:1},
+      {s:T(11,1,13,30), t:'Section-3 3000m スタート', j:'JPN 5名: 兼田笑那・山本・小島・村上・藤木', p:'浅水湾', g:'events:list', hl:1},
+      {s:T(11,1,16), t:'ホテルへ出発', p:'浅水湾', g:'schedule:d1'},
+      {s:T(11,1,17,30), t:'ホテル地下の会場へ', p:'チャーターハウス・ホテル', g:'schedule:d1'},
+      {s:T(11,1,18), e:T(11,1,19,50), t:'パーティ(食事)', p:'ホテル地下の会場', g:'schedule:d1'},
+      {s:T(11,1,20), e:T(11,1,22), t:'トラムパーティー(ホテルロビーに集合)', p:'香港島', g:'schedule:d1', hl:1},
+      {s:T(11,2,7,30), e:T(11,2,10), t:'朝食', p:'ホテル', g:'schedule:d2'},
+      {s:T(11,2,11), t:'チェックアウト(11:00まで)', p:'チャーターハウス・ホテル', g:'schedule:d2', hl:1},
+      {s:T(11,2,12), e:T(11,2,13,30), t:'昼食', p:'ホテル', g:'schedule:d2'},
+      {s:T(11,2,12,55), t:'山本 出発(UO638 福岡)', p:'T2', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,2,14), t:'石本 出発(UO650 成田)', p:'T2', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,2,16,40), t:'山下 出発(CX502 関西)', p:'T1', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,2,17,55), t:'村上 出発(UO622 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,2,18), t:'空港への送迎 ① 18:00 ホテル発', p:'チャーターハウス・ホテル', g:'travel>sec-night'},
+      {s:T(11,2,20,30), t:'空港への送迎 ② 20:30 ホテル発', p:'チャーターハウス・ホテル', g:'travel>sec-night'},
+      {s:T(11,2,23,55), t:'堀口・藤木・川久保・兼田佑子・兼田笑那 出発(UO624 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,3,0,15), t:'長田 出発(NH814 羽田)', p:'T1', g:'travel>sec-dep', k:'出発'},
+      {s:T(11,3,16,40), t:'工藤・仲間 出発(CX502 関西)', p:'T1', g:'travel>sec-dep', k:'出発'}
+    ];
+    var DAYS = [[10,30,'10/30 金'],[10,31,'10/31 土'],[11,1,'11/1 日 大会'],[11,2,'11/2 月'],[11,3,'11/3 火']];
+    var WD = ['日','月','火','水','木','金','土'];
+    function now() { return window.__hkNow || Date.now(); }
+    function hk(ms) { var d = new Date(ms + 8 * 3600e3); return {mo:d.getUTCMonth()+1, d:d.getUTCDate(), h:d.getUTCHours(), mi:d.getUTCMinutes(), wd:d.getUTCDay()}; }
+    function hm(ms) { var x = hk(ms); return x.h + ':' + (x.mi < 10 ? '0' : '') + x.mi; }
+    function md(ms) { var x = hk(ms); return x.mo + '/' + x.d + '(' + WD[x.wd] + ')'; }
+    function left(ms) { var m = Math.round(ms / 60000); if (m < 60) return 'あと' + m + '分'; var h = Math.floor(m / 60); if (h < 24) return 'あと' + h + '時間' + (m % 60 ? (m % 60) + '分' : ''); return 'あと' + Math.floor(h / 24) + '日'; }
+    function when(e) { return '<b>' + hm(e.s) + '</b>' + (e.e ? ' – ' + hm(e.e) : '') + ' ・ ' + md(e.s); }
+    function row(k, cls, e, extra) {
+      return '<div class="row"><span class="k ' + cls + '">' + k + '</span><div><div class="w">' + when(e) + (extra || '') + '</div><div class="tt">' + esc(e.t) +
+        (e.hl ? ' <span class="chip pending">重要</span>' : '') + (e.k ? ' <span class="chip info">' + e.k + '</span>' : '') + '</div>' +
+        (e.j ? '<span class="jl" style="display:block;font-size:13px;font-weight:700;color:var(--warn)">' + esc(e.j) + '</span>' : '') +
+        (e.p ? '<div class="pl">' + esc(e.p) + '</div>' : '') +
+        '<a class="go" href="#" data-goto="' + e.g + '">くわしく見る</a></div></div>';
+    }
+    var selDay = null;
+    function dayKey(ms) { var x = hk(ms); return x.mo * 100 + x.d; }
+    function renderTL() {
+      var n = now(), cur = selDay;
+      var list = EV.filter(function (e) { return dayKey(e.s) === cur; });
+      var nextIdx = -1;
+      list.forEach(function (e, i) { if (nextIdx < 0 && e.s > n) nextIdx = i; });
+      document.getElementById('hm-tl').innerHTML = list.map(function (e, i) {
+        var later = list[i + 1];
+        var past = e.e ? n >= e.e : (e.s <= n && (later ? later.s <= n : n - e.s > 3600e3));
+        var active = e.s <= n && !past;
+        var cls = active ? 'cur' : (i === nextIdx ? 'nxt' : (past ? 'past' : ''));
+        return '<li class="' + cls + '"><span class="t">' + hm(e.s) + (e.e ? '<small>– ' + hm(e.e) + '</small>' : '') + '</span><a href="#" data-goto="' + e.g + '"><span>' + esc(e.t) +
+          (e.k ? ' <span class="chip info">' + e.k + '</span>' : '') + '</span>' + (e.j ? '<small style="color:var(--warn);font-weight:700">' + esc(e.j) + '</small>' : '') + (e.p ? '<small>' + esc(e.p) + '</small>' : '') + '</a></li>';
+      }).join('') || '<li><span class="t">—</span><span>この日の予定はありません。</span></li>';
+      [].forEach.call(document.getElementById('hm-days').children, function (b) { b.setAttribute('aria-pressed', String(+b.getAttribute('data-k') === cur)); });
+    }
+    function tick() {
+      var n = now(), x = hk(n);
+      var clock = hm(n);
+      document.getElementById('hm-clk').textContent = clock;
+      document.getElementById('nb-clk').textContent = 'HKT ' + clock;
+      document.getElementById('hm-date').textContent = '香港時間 ' + x.mo + '/' + x.d + '(' + WD[x.wd] + ')・日本時間 ' + hm(n + 3600e3);
+      var actives = EV.filter(function (e) { return e.e && e.s <= n && n < e.e; });
+      var nexts = EV.filter(function (e) { return e.s > n; }).slice(0, 2);
+      var prevs = EV.filter(function (e) { return e.s <= n && !(e.e && n < e.e); });
+      var prev = prevs[prevs.length - 1];
+      var h = '';
+      if (!EV.some(function (e) { return e.s <= n; })) h += '<div class="row"><span class="k pv">前</span><div><div class="tt">香港での日程は、まだ始まっていません</div><div class="pl">' + left(EV[0].s - n) + 'で 10/30 の予定が始まります。</div></div></div>';
+      actives.forEach(function (e) { h += row('今', 'now', e, ' <span class="cd">終了まで' + left(e.e - n).replace('あと', '') + '</span>'); });
+      if (!actives.length && prev && n - prev.s < 3 * 3600e3) h += row('直前', 'pv', prev);
+      nexts.forEach(function (e, i) { h += row(i ? 'その次' : '次', 'nx', e, ' <span class="cd">' + left(e.s - n) + '</span>'); });
+      if (!nexts.length) h += '<div class="row"><span class="k pv">終了</span><div><div class="tt">香港での日程はすべて終了しました</div><div class="pl">おつかれさまでした。</div></div></div>';
+      document.getElementById('hm-rows').innerHTML = h;
+      var a = actives[0], nx = nexts[0];
+      document.getElementById('nb-txt').innerHTML =
+        (a ? '<span class="lbl">今</span> ' + esc(a.t) + ' ' : '') +
+        (nx ? '<span class="lbl nx">次 ' + hm(nx.s) + '</span> ' + esc(nx.t) : (a ? '' : '日程は終了しました'));
+      var dk = x.mo * 100 + x.d;
+      if (selDay === null) selDay = DAYS.some(function (d) { return d[0] * 100 + d[1] === dk; }) ? dk : (n < EV[0].s ? 1030 : 1102);
+      renderTL();
+    }
+    var dp = document.getElementById('hm-days');
+    dp.innerHTML = DAYS.map(function (d) { return '<button type="button" data-k="' + (d[0] * 100 + d[1]) + '" aria-pressed="false">' + d[2] + '</button>'; }).join('');
+    dp.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; selDay = +b.getAttribute('data-k'); renderTL(); });
+    tick();
+    setInterval(tick, 20000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) tick(); });
+  })();
+
   /* ---------- 参加者 ---------- */
   document.querySelectorAll('[data-members]').forEach(function (box) {
     var key = box.getAttribute('data-members');
@@ -1381,21 +1621,32 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   var dinner = document.querySelector('[data-p="dinner"] .tabset');
   var events = document.querySelector('[data-p="events"] .tabset');
 
+  var tops = ['home', 'schedule', 'members', 'events', 'travel', 'stay', 'dinner', 'map', 'hk'];
+  var ALIAS = {order: 'dinner:order', menu: 'dinner:menu', entry: 'events:entry', list: 'events:list'};
+  function subSet(t) { return document.querySelector('[data-p="' + t + '"] .tabset'); }
+  /* 行き先: "top" / "top:sub" / "top>要素id" */
+  function go(g) {
+    g = ALIAS[g] || g;
+    var el = null, m;
+    if ((m = g.split('>')).length === 2) { top._show(m[0]); el = document.getElementById(m[1]); }
+    else if ((m = g.split(':')).length === 2) { top._show(m[0]); var s = subSet(m[0]); if (s && s._show) s._show(m[1]); }
+    else if (tops.indexOf(g) >= 0) { top._show(g); }
+    else return false;
+    return el || true;
+  }
   function route() {
     var h = (location.hash || '').replace('#', '');
-    var tops = ['schedule', 'members', 'events', 'travel', 'stay', 'dinner', 'map', 'hk'];
-    if (tops.indexOf(h) >= 0) { top._show(h); }
-    else if (h === 'order' || h === 'menu') { top._show('dinner'); dinner._show(h); }
-    else if (h === 'entry' || h === 'list') { top._show('events'); events._show(h); }
-    else return false;
-    return true;
+    return h ? !!go(h) : false;
   }
+  function navH() { var n = document.querySelector('.top-nav'); return n ? n.offsetHeight : 0; }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-goto]'); if (!a) return;
     e.preventDefault();
     var g = a.getAttribute('data-goto');
-    if (g === 'order' || g === 'menu') { top._show('dinner'); dinner._show(g); } else if (g === 'entry' || g === 'list') { top._show('events'); events._show(g); } else { top._show(g); }
-    try { history.replaceState(null, '', '#' + g); } catch (err) {}
+    var r = go(g); if (!r) return;
+    var hs = ALIAS[g] ? g : g.split(/[:>]/)[0];
+    try { history.replaceState(null, '', '#' + hs); } catch (err) {}
+    if (r !== true) { window.scrollTo(0, Math.max(0, r.getBoundingClientRect().top + window.pageYOffset - navH() - 10)); return; }
     var nav = document.querySelector('.top-nav'); if (nav) { window.scrollTo(0, Math.max(0, nav.parentElement.offsetTop - 4)); }
   });
   window.addEventListener('hashchange', route);
