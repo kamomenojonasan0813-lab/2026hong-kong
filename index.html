@@ -454,6 +454,7 @@ body:not(.on-home) .hero { display: none; }
         <div class="tiles">
           <a class="tile race" href="#list" data-goto="events:list"><b>日本選手の結果</b><span>記録と順位</span></a>
           <a class="tile race" href="#entry" data-goto="events:entry"><b>エントリー・結果</b><span>全選手・JPNを強調</span></a>
+          <a class="tile race" href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener"><b>レース・トラムの動画 ↗</b><span>Googleドライブで開く</span></a>
           <a class="tile race" href="#schedule" data-goto="schedule:d1"><b>11/1 の流れ</b><span>9:30 ロビー集合から</span></a>
           <a class="tile race" href="#events" data-goto="events:venue"><b>会場・コース図</b><span>浅水湾の配置図</span></a>
           <a class="tile race" href="#events" data-goto="events:rule"><b>大会規定</b><span>フィン・水着・スイムブイ</span></a>
@@ -586,7 +587,7 @@ body:not(.on-home) .hero { display: none; }
             <li><span class="t">16:00<small>浅水湾</small></span><span>ホテルへ出発。</span></li>
             <li><span class="t">17:30<small>ホテル</small></span><span>ホテル地下の会場へ。</span></li>
             <li><span class="t">18:00 – 19:50<small>ホテル地下</small></span><span>パーティ(食事)。ご家族を含む全員参加で、参加費に含まれるため不参加でも返金はありません。</span></li>
-            <li><span class="t">20:00 – 22:00<small>香港島</small></span><span>トラムパーティー。<b>ホテルのロビーに集合</b>してください。貸切の普通車両で、スナックや飲み物を持ち込みます。</span></li>
+            <li><span class="t">20:00 – 22:00<small>香港島</small></span><span>トラムパーティー。<b>ホテルのロビーに集合</b>してください。貸切の普通車両で、スナックや飲み物を持ち込みます。<br><a href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener">レースとトラムパーティーの動画 ↗</a></span></li>
           </ul>
         </div>
       </div>
@@ -992,6 +993,13 @@ body:not(.on-home) .hero { display: none; }
 
       <div class="tp" role="tabpanel" data-p="list">
         <p class="lead" style="margin-bottom:12px">会場に掲示された結果表(11/1)の記録です。日本選手13名全員の記録が出ています。</p>
+        <div class="panel" style="margin-bottom:14px;display:grid;gap:8px">
+          <div class="h3" style="margin:0">11/1 レースとトラムパーティーの動画</div>
+          <p style="font-size:14px">Googleドライブのフォルダ「2026レース+トラム」にまとめられています。リンクを知っている人は誰でも見られます。</p>
+          <a class="btn" href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener">動画フォルダを開く ↗</a>
+          <a href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener" style="font-size:13px;word-break:break-all">https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH</a>
+          <button class="copy" type="button" data-copy="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" style="width:fit-content">リンクをコピー</button>
+        </div>
         <div id="jp-res"></div>
         <p class="lead">結果表に書かれた時刻は Section-2 が 13:00、Section-3 が 13:45 です(プログラムでは 12:45、13:30)。Section-1 の結果表は、まだ届いていません。BF = ビーフィン、SF = モノフィン。</p>
       </div>
@@ -1577,6 +1585,7 @@ body:not(.on-home) .hero { display: none; }
       {s:T(11,2,16,40), t:'山下 出発(CX502 関西)', p:'T1', g:'travel>sec-dep', k:'出発'},
       {s:T(11,2,17,55), t:'村上 出発(UO622 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
       {s:T(11,2,13,30), t:'グループ2 ホテル発', j:'山下家・村上', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
+      {s:T(11,2,18), t:'グループ3 ホテルに戻る(18:00には戻っておく)', j:'堀口・藤木・川久保', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
       {s:T(11,2,20), t:'グループ3 ホテル発', j:'堀口・藤木・川久保', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
       {s:T(11,2,20,30), e:T(11,2,21), t:'グループ4・5 空港で荷物を受け取り', j:'兼田(T2 UOカウンター近く)・長田(T1 チェックインカウンター近く)', p:'香港国際空港', g:'travel>sec-night', hl:1},
       {s:T(11,2,23,55), t:'堀口・藤木・川久保・兼田佑子・兼田笑那 出発(UO624 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
@@ -1654,7 +1663,7 @@ body:not(.on-home) .hero { display: none; }
     var G = {
       1:{h:'9:45 ホテル発', sub:'Korea Teamと一緒', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト'],['9:45','ホテル発(Korea Teamと一緒)',1]]},
       2:{h:'13:30 ホテル発', sub:'チェックアウト後、ホテルでランチ', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト'],['12:00 – 13:30','ホテルでランチ'],['13:30','ホテル発',1]]},
-      3:{h:'20:00 ホテル発', sub:'チェックアウト後フリー。ホテルに戻って夕食後に出発', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['','ホテルに戻って夕食'],['20:00','ホテル発',1]]},
+      3:{h:'20:00 ホテル発', sub:'チェックアウト後フリー。18:00にはホテルに戻り、夕食後に出発', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['18:00','ホテルに戻る(18:00には戻っておく)',1],['','夕食'],['20:00','ホテル発',1]]},
       4:{h:'チェックアウト後フリー', sub:'荷物は空港T2で受け取り', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['20:30 – 21:00','空港T2のUOチェックインカウンター近くで、グループ3の同行スタッフから荷物を受け取る',1]]},
       5:{h:'チェックアウト後フリー', sub:'荷物は空港T1で受け取り', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['20:30 – 21:00','空港T1のチェックインカウンター近くで、香港連盟スタッフから荷物を受け取る',1]]},
       6:{h:'11/3 各自で空港へ', sub:'11/2 チェックアウト後フリー', steps:[['11/2 7:30 – 10:00','朝食(ホテル)'],['11/2 11:00まで','チェックアウト'],['11/2','フリー'],['11/3','自分自身で空港へ',1]]}
