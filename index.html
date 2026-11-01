@@ -399,6 +399,15 @@ body:not(.on-home) .hero { display: none; }
   table.stk tr.jp { background: var(--warn-soft); box-shadow: inset 4px 0 0 var(--warn); }
   table.stk td .ro { display: block; }
 }
+details.howto { border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+details.howto summary { cursor: pointer; font-weight: 700; font-size: 14.5px; padding: 10px 14px; list-style: none; display: flex; justify-content: space-between; gap: 8px; }
+details.howto summary::-webkit-details-marker { display: none; }
+details.howto summary::after { content: "＋"; color: var(--accent); }
+details.howto[open] summary::after { content: "－"; }
+details.howto summary:focus-visible { outline: 3px solid var(--warn); outline-offset: 2px; border-radius: 10px; }
+details.howto .in { padding: 0 14px 12px; display: grid; gap: 8px; font-size: 14px; }
+details.howto ol { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.key-ui { display: inline-block; font-weight: 700; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 0 6px; line-height: 1.6; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 </style>
 
@@ -999,6 +1008,38 @@ body:not(.on-home) .hero { display: none; }
           <a class="btn" href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener">動画フォルダを開く ↗</a>
           <a href="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" target="_blank" rel="noopener" style="font-size:13px;word-break:break-all">https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH</a>
           <button class="copy" type="button" data-copy="https://drive.google.com/drive/folders/1U-agMlBqYRdsd-48CBZ3gbVwxEFOJSZH" style="width:fit-content">リンクをコピー</button>
+          <div class="h3" style="margin:8px 0 0;font-size:16px">動画の見方・保存のしかた</div>
+          <p style="font-size:14px"><b>見るだけなら</b>、上のボタンでフォルダを開き、見たい動画をタップすると再生されます。スマホに<b>保存したいとき</b>は、使っている機種を開いてください。</p>
+          <details class="howto"><summary>iPhone で写真アプリに保存する</summary><div class="in">
+            <ol>
+              <li>App Store で「Google ドライブ」アプリ(無料)を入れて、Googleアカウントでログインします。</li>
+              <li>このページの<span class="key-ui">動画フォルダを開く</span>をタップします。ブラウザで開いたときは、画面に出る<span class="key-ui">アプリで開く</span>をタップします。</li>
+              <li>保存したい動画の右にある<span class="key-ui">⋮</span>(点3つ)をタップします。</li>
+              <li><span class="key-ui">送信</span>または<span class="key-ui">コピーを送信</span>をタップします。</li>
+              <li><span class="key-ui">ビデオを保存</span>をタップすると、「写真」アプリに保存されます。</li>
+            </ol>
+          </div></details>
+          <details class="howto"><summary>Android で保存する</summary><div class="in">
+            <ol>
+              <li><span class="key-ui">動画フォルダを開く</span>をタップします(多くの機種では「Google ドライブ」アプリで開きます)。</li>
+              <li>保存したい動画の右にある<span class="key-ui">⋮</span>(点3つ)をタップします。</li>
+              <li><span class="key-ui">ダウンロード</span>をタップします。</li>
+              <li>保存した動画は、「ファイル」アプリの「ダウンロード」に入ります。「フォト」アプリにも表示されます。</li>
+            </ol>
+          </div></details>
+          <details class="howto"><summary>パソコンで保存する</summary><div class="in">
+            <ol>
+              <li><span class="key-ui">動画フォルダを開く</span>をクリックします。</li>
+              <li>保存したい動画の<span class="key-ui">⋮</span>(点3つ)をクリックし、<span class="key-ui">ダウンロード</span>を選びます。</li>
+              <li>まとめて保存するときは、動画を複数選んでから<span class="key-ui">ダウンロード</span>します。ZIPファイルにまとめられるので、開いて(展開して)から使います。</li>
+              <li>保存先は、ふつう「ダウンロード」フォルダです。</li>
+            </ol>
+          </div></details>
+          <ul class="plain" style="font-size:13.5px">
+            <li>動画はデータ量が大きいので、<b>Wi-Fiにつないだ状態</b>で保存すると安心です。</li>
+            <li>ボタンの名前や場所は、アプリのバージョンによって少し違うことがあります。</li>
+            <li>保存が終わるまで、アプリを閉じずに待ってください。</li>
+          </ul>
         </div>
         <div id="jp-res"></div>
         <p class="lead">結果表に書かれた時刻は Section-2 が 13:00、Section-3 が 13:45 です(プログラムでは 12:45、13:30)。Section-1 の結果表は、まだ届いていません。BF = ビーフィン、SF = モノフィン。</p>
