@@ -299,7 +299,106 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   th, td { padding: 8px 10px; }
   .top-set > .tp { padding-top: 14px; }
 }
+.rk { display: inline-block; white-space: nowrap; min-width: 34px; text-align: center; font-weight: 900; font-family: var(--font-display); border-radius: 4px; padding: 0 6px; background: var(--bg); border: 1px solid var(--line); }
+.rk.r1 { background: var(--gold-soft); color: var(--gold); border-color: var(--gold); }
+td.res { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; }
+.picker { display: flex; flex-wrap: wrap; gap: 6px; }
+.picker button { font: inherit; font-size: 13.5px; font-weight: 700; padding: 6px 12px; border-radius: 99px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); cursor: pointer; }
+.picker button[aria-pressed="true"] { background: var(--warn); border-color: var(--warn); color: #fff; }
+:root[data-theme="dark"] .picker button[aria-pressed="true"] { color: #25100b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .picker button[aria-pressed="true"] { color: #25100b; } }
+.picker button:focus-visible { outline: 3px solid var(--warn); outline-offset: 2px; }
+.mecard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.mecard .mh { background: var(--warn); color: #fff; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+:root[data-theme="dark"] .mecard .mh { color: #25100b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mecard .mh { color: #25100b; } }
+.mecard .mh b { font-family: var(--font-display); font-size: 20px; }
+.mecard .mb { padding: 12px 16px; display: grid; gap: 14px; }
+.mecard .blk h3 { font-size: 13px; color: var(--muted); font-weight: 700; margin-bottom: 6px; letter-spacing: .04em; }
+.mecard .big2 { font-family: var(--font-display); font-weight: 900; font-size: 24px; font-variant-numeric: tabular-nums; }
+.steps2 { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-left: 3px solid var(--line); margin-left: 6px; }
+.steps2 li { position: relative; padding: 4px 0 10px 16px; font-size: 14px; }
+.steps2 li::before { content: ""; position: absolute; left: -8px; top: 9px; width: 11px; height: 11px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
+.steps2 li.key::before { border-color: var(--warn); background: var(--warn); }
+.steps2 li .t { display: block; font-weight: 700; color: var(--accent); font-size: 13px; font-variant-numeric: tabular-nums; }
+.steps2 li.key .t { color: var(--warn); }
+.grp { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grp .panel .h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.grp .panel .h3 .tm { color: var(--warn); font-variant-numeric: tabular-nums; }
+.grp .who { font-size: 13.5px; display: grid; gap: 2px; margin: 6px 0; }
 .foot { margin-top: 40px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+
+/* ================= 見やすさ改良(v5) ================= */
+:root { --bg: #edf2f4; --line: #dce6e9; --shadow: 0 1px 2px rgba(15,46,56,.05), 0 6px 18px rgba(15,46,56,.06); --r: 14px; --bnav-h: 0px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a171c; --line: #213a43; --shadow: 0 1px 2px rgba(0,0,0,.3); } }
+:root[data-theme="dark"] { --bg: #0a171c; --line: #213a43; --shadow: 0 1px 2px rgba(0,0,0,.3); }
+body { font-size: 15.5px; line-height: 1.8; -webkit-text-size-adjust: 100%; }
+.panel, .tbl, .day, .nowcard, .mecard, .menu-list, .hall, .tl, .map, .pages figure { border-radius: var(--r); box-shadow: var(--shadow); border-color: var(--line); }
+.panel { padding: 18px 20px; }
+.tile { border-radius: 12px; box-shadow: var(--shadow); border-top-width: 0; border-left: 5px solid var(--accent); min-height: 74px; padding: 12px 14px; }
+.tile.race { border-left-color: var(--warn); } .tile.gold { border-left-color: var(--gold); } .tile.ok { border-left-color: var(--ok); }
+.tile b { font-size: 16px; }
+.h3 { font-size: 18px; }
+h3.h3 { font-size: 19px; padding-left: 10px; border-left: 4px solid var(--accent); line-height: 1.35; margin-bottom: 12px; }
+.note { border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 14px; }
+.lead { font-size: 14px; line-height: 1.75; }
+th { background: transparent; border-bottom-width: 2px; }
+.tbl table td, .tbl table th { padding: 11px 14px; }
+.chip { border-radius: 99px; padding: 1px 9px; }
+.homesec > h2 { font-size: 13px; text-transform: none; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.homesec > h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.home { gap: 22px; }
+.nowcard .hd { padding: 14px 18px; }
+.nowcard .hd .big { font-size: 36px; }
+.nowcard .row { padding: 14px 18px; grid-template-columns: 48px minmax(0, 1fr); }
+.nowcard .tt { font-size: 17px; }
+.sec-hd .tm { font-size: 24px; }
+.sub [role="tab"] { padding: 6px 14px; font-size: 13.5px; }
+.day li { font-size: 14.5px; }
+
+/* アプリ風ヘッダー */
+.apptitle { display: none; max-width: 900px; margin: 0 auto 6px; align-items: center; justify-content: space-between; gap: 10px; }
+.apptitle b { font-family: var(--font-display); font-weight: 900; font-size: 16px; color: var(--accent); }
+.apptitle span { font-size: 12px; color: var(--muted); }
+@media (max-width: 760px) { .apptitle span { display: none; } .apptitle b { white-space: nowrap; } }
+body:not(.on-home) .apptitle { display: flex; }
+body:not(.on-home) .hero { display: none; }
+.nowbar { border-radius: 99px; padding: 6px 14px; box-shadow: var(--shadow); }
+
+/* 下のメニュー(スマホ) */
+.bnav { display: none; }
+.sheet-bg { position: fixed; inset: 0; background: rgba(5,20,26,.45); z-index: 40; }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 41; background: var(--surface); border-radius: 18px 18px 0 0; padding: 14px 16px calc(18px + env(safe-area-inset-bottom, 0px) + var(--bnav-h)); box-shadow: 0 -8px 30px rgba(0,0,0,.15); max-height: 80vh; overflow-y: auto; }
+.sheet .grab { width: 40px; height: 5px; border-radius: 99px; background: var(--line); margin: 0 auto 12px; }
+.sheet h2 { font-size: 15px; margin-bottom: 10px; }
+.sheet .tiles { grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) {
+  :root { --bnav-h: 64px; }
+  body { padding-bottom: calc(var(--bnav-h) + 24px + env(safe-area-inset-bottom, 0px)); }
+  .top-nav .tabbar { display: none; }
+  .top-nav { padding-top: 8px; padding-bottom: 8px; box-shadow: 0 1px 0 var(--line); border-bottom: 0; }
+  .nowbar { margin-top: 0; }
+  .bnav { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--surface); border-top: 1px solid var(--line); padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -4px 16px rgba(15,46,56,.06); }
+  .bnav button { font: inherit; background: none; border: 0; color: var(--muted); display: grid; justify-items: center; gap: 2px; font-size: 11px; font-weight: 700; padding: 4px 0; cursor: pointer; border-radius: 10px; }
+  .bnav button svg { width: 24px; height: 24px; }
+  .bnav button[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+  .bnav button:focus-visible { outline: 3px solid var(--warn); outline-offset: 1px; }
+  .top-set > .tp { padding-top: 16px; }
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .panel { padding: 16px; }
+  /* 表をカード型に */
+  table.stk { min-width: 0 !important; }
+  table.stk thead { display: none; }
+  table.stk, table.stk tbody, table.stk tr, table.stk td { display: block; width: auto; }
+  table.stk tr { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  table.stk tr:last-child { border-bottom: 0; }
+  table.stk td { border: 0; padding: 3px 0 3px 96px !important; position: relative; min-height: 26px; white-space: normal !important; background: transparent !important; box-shadow: none !important; }
+  table.stk td::before { content: attr(data-label); position: absolute; left: 0; top: 5px; width: 88px; font-size: 12px; line-height: 1.5; color: var(--muted); font-weight: 700; }
+  table.stk td:first-child { font-weight: 700; font-size: 15.5px; }
+  table.stk tr.hl { background: var(--gold-soft); }
+  table.stk tr.jp { background: var(--warn-soft); box-shadow: inset 4px 0 0 var(--warn); }
+  table.stk td .ro { display: block; }
+}
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 </style>
 
@@ -307,13 +406,14 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   <div class="wrap">
     <div class="kicker">第30回 国際長距離フィンスイミング招待競技会</div>
     <h1>2026 香港OWS 参加者ガイド</h1>
-    <div class="meta"><span>10/30(金) – 11/2(月)</span><span>大会 11/1(日)・浅水湾</span><span>選手13名・引率2名</span><span>10/30 更新</span></div>
+    <div class="meta"><span>10/30(金) – 11/2(月)</span><span>大会 11/1(日)・浅水湾</span><span>選手13名・引率2名</span><span>11/1 更新</span></div>
     <div class="meta" style="margin-top:6px"><span style="white-space:normal">連絡手段: LINEグループ「2026HongKong OWS」</span></div>
   </div>
 </header>
 
 <div class="top-set tabset">
   <nav class="top-nav bleed" aria-label="メインメニュー">
+    <div class="apptitle"><b>2026 香港OWS ガイド</b><span>第30回 国際長距離フィンスイミング招待競技会</span></div>
     <div class="tabbar" role="tablist">
       <button role="tab" data-t="home">ホーム</button>
       <button role="tab" data-t="schedule">全体スケジュール</button>
@@ -336,6 +436,12 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
         <div id="hm-rows"></div>
       </div>
 
+      <section class="homesec" id="me">
+        <h2>わたしの動き(名前を選んでください)</h2>
+        <div class="picker" id="me-pick" role="group" aria-label="名前を選ぶ"></div>
+        <div id="me-card"></div>
+      </section>
+
       <section class="homesec">
         <h2>この日の予定</h2>
         <div class="daypick" id="hm-days" role="group" aria-label="日付を選ぶ"></div>
@@ -346,8 +452,8 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       <section class="homesec">
         <h2>大会 11/1(日)</h2>
         <div class="tiles">
-          <a class="tile race" href="#list" data-goto="events:list"><b>日本選手の出場</b><span>12:45 Section-2 / 13:30 Section-3</span></a>
-          <a class="tile race" href="#entry" data-goto="events:entry"><b>エントリーリスト</b><span>全37名・JPNを強調</span></a>
+          <a class="tile race" href="#list" data-goto="events:list"><b>日本選手の結果</b><span>記録と順位</span></a>
+          <a class="tile race" href="#entry" data-goto="events:entry"><b>エントリー・結果</b><span>全選手・JPNを強調</span></a>
           <a class="tile race" href="#schedule" data-goto="schedule:d1"><b>11/1 の流れ</b><span>9:30 ロビー集合から</span></a>
           <a class="tile race" href="#events" data-goto="events:venue"><b>会場・コース図</b><span>浅水湾の配置図</span></a>
           <a class="tile race" href="#events" data-goto="events:rule"><b>大会規定</b><span>フィン・水着・スイムブイ</span></a>
@@ -362,7 +468,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
           <a class="tile" href="#schedule" data-goto="schedule:all"><b>全体スケジュール</b><span>10/30 – 11/2 の表</span></a>
           <a class="tile" href="#travel" data-goto="travel&gt;sec-arr"><b>到着(往路)</b><span>便・お迎えのグループ</span></a>
           <a class="tile" href="#travel" data-goto="travel&gt;sec-dep"><b>出発(復路)</b><span>便・ターミナル</span></a>
-          <a class="tile" href="#travel" data-goto="travel&gt;sec-night"><b>11/2 夜の便の方</b><span>18:00 / 20:30 ホテル発</span></a>
+          <a class="tile" href="#travel" data-goto="travel&gt;sec-night"><b>帰国グループ</b><span>11/2・11/3 の出発と注意事項</span></a>
           <a class="tile" href="#members" data-goto="members:all"><b>参加者</b><span>選手13名・引率2名</span></a>
           <a class="tile" href="#map" data-goto="map"><b>地図</b><span>ホテル・会場・お店</span></a>
         </div>
@@ -435,7 +541,10 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
             <tr><td class="num">11/1(日)</td><td class="num">20:00 – 22:00</td><td>トラムパーティー(<b>ホテルロビーに集合</b>)</td><td>香港島</td></tr>
             <tr><td class="num">11/2(月)</td><td class="num">7:30 – 10:00</td><td>朝食</td><td>ホテル</td></tr>
             <tr><td class="num">11/2(月)</td><td class="num">11:00まで</td><td>チェックアウト。各自のフライトに合わせてホテルを出発</td><td>チャーターハウス・ホテル</td></tr>
+            <tr><td class="num">11/2(月)</td><td class="num">9:45</td><td>グループ1 ホテル発(山本・石本・小島)</td><td>チャーターハウス・ホテル</td></tr>
             <tr><td class="num">11/2(月)</td><td class="num">12:00 – 13:30</td><td>昼食(午後に出発する方は、ホテルで支払い不要)</td><td>ホテル</td></tr>
+            <tr><td class="num">11/2(月)</td><td class="num">13:30</td><td>グループ2 ホテル発(山下家・村上)</td><td>チャーターハウス・ホテル</td></tr>
+            <tr><td class="num">11/2(月)</td><td class="num">20:00</td><td>グループ3 ホテル発(堀口・藤木・川久保)</td><td>チャーターハウス・ホテル</td></tr>
           </tbody>
         </table></div>
       </div>
@@ -489,7 +598,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
             <li><span class="t">11:00まで<small>ホテル</small></span><span>チェックアウト。各自のフライトに合わせて、ホテルを出発します。</span></li>
             <li><span class="t">12:00 – 13:30<small>ホテル</small></span><span>昼食。午後に出発する方は、ホテルでの支払いは不要です。</span></li>
             <li><span class="t none">日中</span><span>荷物をホテルに預けて観光できます。</span></li>
-            <li><span class="t">18:00 / 20:30<small>ホテル発</small></span><span>夜中の便の方は、空港へ車で送迎。18:00発(早めに空港で食事)か、20:30発(ギリギリまで観光)から選びます。</span></li>
+            <li><span class="t">9:45 / 13:30 / 20:00<small>ホテル発</small></span><span>帰国グループごとに出発します。グループ1は9:45、グループ2は13:30、グループ3は20:00。グループ4〜6は、チェックアウト後フリーです。<a href="#travel" data-goto="travel&gt;sec-night">帰国グループ</a> / <a href="#me" data-goto="home&gt;me">名前を選んで確認</a></span></li>
             <li><span class="t none">便の一覧</span><span><a href="#travel" data-goto="travel">到着・出発のタブ</a>で、全員の復路の便とターミナルを確認できます。</span></li>
           </ul>
         </div>
@@ -589,22 +698,22 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
 
       <section style="margin-top:14px" id="sec-dep">
         <h3 class="h3">出発(復路)</h3>
-        <p class="note" style="margin-bottom:10px">ホテルのチェックアウトは<b>11/2の11:00まで</b>です。香港空港に新設されたT2は、香港エクスプレス(UO)の便で使います。キャセイ(CX)と全日空(NH)はT1です。香港エクスプレスの便の方は、T2へ車で送ってもらう手配です。空港は広いので、余裕をもって移動してください。</p>
+        <p class="note" style="margin-bottom:10px">ホテルのチェックアウトは<b>11/2の11:00まで</b>です。香港空港に新設されたT2は、香港エクスプレス(UO)の便で使います。キャセイ(CX)と全日空(NH)はT1です。空港へ行くのがバスか車かによって、T1で降りて歩いて移動するか、直接T2へ行くかが変わります。同行スタッフの案内に従ってください。空港は広いので、余裕をもって移動してください。</p>
         <div class="tbl"><table class="wide">
-          <thead><tr><th>出発日時</th><th>便</th><th>行き先</th><th>名前</th><th>空港</th><th>ホテルから空港へ</th></tr></thead>
+          <thead><tr><th>出発日時</th><th>便</th><th>行き先</th><th>名前</th><th>空港</th><th>帰国グループ</th></tr></thead>
           <tbody>
-            <tr><td class="num">11/2 12:55</td><td class="num">UO638</td><td>福岡</td><td>山本 美苗</td><td><span class="chip ok">T2</span></td><td>—</td></tr>
-            <tr><td class="num">11/2 14:00</td><td class="num">UO650</td><td>成田</td><td>石本 清嗣</td><td><span class="chip ok">T2</span></td><td>—</td></tr>
-            <tr><td class="num">11/2 16:40</td><td class="num">CX502</td><td>関西</td><td>山下 哲史</td><td><span class="chip info">T1</span></td><td>—</td></tr>
-            <tr><td class="num">11/2 17:55</td><td class="num">UO622</td><td>羽田</td><td>村上 蓮</td><td><span class="chip ok">T2</span></td><td>—</td></tr>
-            <tr><td class="num">11/2 23:55</td><td class="num">UO624</td><td>羽田</td><td>堀口 裕太、藤木 萌人、川久保 清志</td><td><span class="chip ok">T2</span></td><td><b>18:00発</b>(回答済み)</td></tr>
-            <tr><td class="num">11/2 23:55</td><td class="num">UO624</td><td>羽田</td><td>兼田 佑子、兼田 笑那</td><td><span class="chip ok">T2</span></td><td><span class="chip pending">回答待ち</span></td></tr>
-            <tr class="hl"><td class="num">11/3 00:15</td><td class="num">NH814</td><td>羽田</td><td>長田 和也</td><td><span class="chip info">T1</span></td><td>観光後、ご自身で空港へ</td></tr>
-            <tr class="hl"><td class="num">11/3 16:40</td><td class="num">CX502</td><td>関西</td><td>工藤 悠介、仲間 麗美</td><td><span class="chip info">T1</span></td><td>—</td></tr>
-            <tr><td class="num">未定</td><td>—</td><td>—</td><td>小島 美貴</td><td><span class="chip pending">確認中</span></td><td>—</td></tr>
+            <tr><td class="num"><span class="chip pending">時刻未確認</span></td><td><span class="chip pending">未確認</span></td><td>—</td><td>小島 美貴</td><td><span class="chip info">T1</span></td><td><b>1</b> 9:45 ホテル発</td></tr>
+            <tr><td class="num">11/2 12:55</td><td class="num">UO638</td><td>福岡</td><td>山本 美苗</td><td><span class="chip ok">T2</span></td><td><b>1</b> 9:45 ホテル発</td></tr>
+            <tr><td class="num">11/2 14:00</td><td class="num">UO650</td><td>成田</td><td>石本 清嗣</td><td><span class="chip ok">T2</span></td><td><b>1</b> 9:45 ホテル発</td></tr>
+            <tr><td class="num">11/2 16:40</td><td class="num">CX502</td><td>関西</td><td>山下 哲史(山下家)</td><td><span class="chip info">T1</span></td><td><b>2</b> 13:30 ホテル発</td></tr>
+            <tr><td class="num">11/2 17:55</td><td class="num">UO622</td><td>羽田</td><td>村上 蓮</td><td><span class="chip ok">T2</span></td><td><b>2</b> 13:30 ホテル発</td></tr>
+            <tr><td class="num">11/2 23:55</td><td class="num">UO624</td><td>羽田</td><td>堀口 裕太、藤木 萌人、川久保 清志</td><td><span class="chip ok">T2</span></td><td><b>3</b> 20:00 ホテル発</td></tr>
+            <tr><td class="num">11/2 23:55</td><td class="num">UO624</td><td>羽田</td><td>兼田 佑子、兼田 笑那</td><td><span class="chip ok">T2</span></td><td><b>4</b> フリー。20:30〜21:00 T2で荷物を受け取り</td></tr>
+            <tr class="hl"><td class="num">11/3 00:15</td><td class="num">NH814</td><td>羽田</td><td>長田 和也</td><td><span class="chip info">T1</span></td><td><b>5</b> フリー。20:30〜21:00 T1で荷物を受け取り</td></tr>
+            <tr class="hl"><td class="num">11/3 16:40</td><td class="num">CX502</td><td>関西</td><td>工藤 悠介、仲間 麗美</td><td><span class="chip info">T1</span></td><td><b>6</b> 11/3 各自で空港へ</td></tr>
           </tbody>
         </table></div>
-        <p class="lead" style="margin-top:8px">黄色の行は11/3の出発です。T2は、藤木・村上・山本・石本がe-ticketで記載を確認済みです。「—」の方の空港への移動は、決まり次第の案内となります。</p>
+        <p class="lead" style="margin-top:8px">黄色の行は11/3の出発です。T2は、藤木・村上・山本・石本がe-ticketで記載を確認済みです。グループの詳細は下の「帰国グループ」にあります。小島さんの便名と時刻は未確認です。</p>
       </section>
 
       <section style="margin-top:14px">
@@ -612,17 +721,24 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
         <div class="panel"><ul class="plain">
           <li>空港のチェックインカウンターは長い列ができるとのことです。<b>オンラインチェックイン</b>を済ませておいてください。</li>
           <li><b>復路便は必ず</b>オンラインチェックインをしてください。往路便も、しておくと早いと見られます。</li>
-          <li>復路は第2ターミナル(T2)です。ホテルからはT2へ送ってもらえるよう手配されています。</li>
+          <li>復路は第2ターミナル(T2)からの出発です。</li>
+          <li>空港へ行くのがバスか車かによって、T1で降りて歩いて移動するか、直接T2へ行くかが変わります。同行スタッフの案内に従ってください。</li>
         </ul></div>
       </section>
 
       <section style="margin-top:14px" id="sec-night">
-        <h3 class="h3">11/2 夜中の便の方: ホテル発の時刻</h3>
-        <div class="cols">
-          <div class="panel"><div class="h3">① 18:00 ホテル発</div><p style="font-size:14px">荷物をホテルに預けて観光し、18:00にホテルへ戻って空港へ。早めに空港へ着いて食事をしたい方向けです。空港まで車で送迎されます。</p></div>
-          <div class="panel"><div class="h3">② 20:30 ホテル発</div><p style="font-size:14px">ギリギリまで観光したい方向けです。空港まで車で送迎されます。</p></div>
+        <h3 class="h3">11/2・11/3 帰国日の出発スケジュール</h3>
+        <p class="lead" style="margin-bottom:10px">LINEの案内(11/1)です。以前の「18:00 / 20:30 ホテル発」の案内は、このグループ分けに置きかわりました。<a href="#me" data-goto="home&gt;me">名前を選ぶ</a>と、自分の動きだけを確認できます。</p>
+        <div class="grp" id="grp-list"></div>
+        <div class="panel" style="margin-top:12px">
+          <div class="h3">注意事項</div>
+          <ul class="plain">
+            <li>UO(香港エクスプレス)便の方は、必ず忘れないうちに<b>オンラインチェックイン</b>をしておいてください。</li>
+            <li>UO便は<b>ターミナル2(T2)</b>からの出発です。</li>
+            <li>荷物に、お渡しした<b>赤いタグ</b>をつけておいてください。</li>
+            <li>空港へ行くのがバスか車かによって、T1で降りて歩いて移動するか、直接T2へ行くかが変わります。<b>同行スタッフの案内に従ってください。</b></li>
+          </ul>
         </div>
-        <p class="lead" style="margin-top:8px">車が不要な方や、希望が変わった方は、早めに砂原さんへ連絡してください。</p>
       </section>
 
     </div>
@@ -865,8 +981,8 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   <div class="tp wrap" role="tabpanel" data-p="events">
     <div class="tabset">
       <div class="tabbar sub" role="tablist">
-        <button role="tab" data-t="list">日本選手の出場</button>
-        <button role="tab" data-t="entry">エントリーリスト</button>
+        <button role="tab" data-t="list">日本選手の結果</button>
+        <button role="tab" data-t="entry">エントリー・結果</button>
         <button role="tab" data-t="venue">会場(浅水湾)</button>
         <button role="tab" data-t="flow">大会期間の流れ</button>
         <button role="tab" data-t="rule">大会規定</button>
@@ -875,44 +991,13 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       </div>
 
       <div class="tp" role="tabpanel" data-p="list">
-        <p class="lead" style="margin-bottom:12px">大会プログラム(Ver8v4)のスタートリストです。日本選手13名は、Section-2(12:45)と Section-3(13:30)に出場します。召集は10:00です。</p>
-        <div class="sec">
-          <div class="sec-hd"><span class="tm">12:00</span><span class="nm">Section-1 1000m</span><span class="ct">12名・日本選手の出場なし</span></div>
-        </div>
-        <div class="sec">
-          <div class="sec-hd"><span class="tm">12:45</span><span class="nm">Section-2 1000m マスターズ</span><span class="chip jpn">JPN 8名</span><span class="ct">全13名</span></div>
-          <div class="tbl"><table class="mid">
-            <thead><tr><th>種目</th><th class="num">No.</th><th>選手</th></tr></thead>
-            <tbody>
-              <tr class="jp"><td>男子 M30+ 1000m SF</td><td class="num">23</td><td><span class="jn">堀口 裕太</span><span class="ro">Horiguchi Yuta</span></td></tr>
-              <tr class="jp"><td>男子 M40+ 1000m SF</td><td class="num">25</td><td><span class="jn">山下 哲史</span><span class="ro">Yamashita Satoshi</span></td></tr>
-              <tr class="jp"><td>男子 M40+ 1000m SF</td><td class="num">26</td><td><span class="jn">工藤 悠介</span><span class="ro">Kudo Yusuke</span></td></tr>
-              <tr class="jp"><td>男子 M50+ 1000m SF</td><td class="num">27</td><td><span class="jn">石本 清嗣</span><span class="ro">Ishimoto Kiyotsugu</span></td></tr>
-              <tr class="jp"><td>女子 M30+ 1000m BF</td><td class="num">19</td><td><span class="jn">仲間 麗美</span><span class="ro">Nakama Remi</span></td></tr>
-              <tr class="jp"><td>女子 M40+ 1000m BF</td><td class="num">20</td><td><span class="jn">兼田 佑子</span><span class="ro">Kaneda Yuko</span></td></tr>
-              <tr class="jp"><td>男子 M40+ 1000m BF</td><td class="num">24</td><td><span class="jn">長田 和也</span><span class="ro">Nagata Kazuya</span></td></tr>
-              <tr class="jp"><td>男子 M70+ 1000m BF</td><td class="num">28</td><td><span class="jn">川久保 清志</span><span class="ro">Kawakubo Kiyoshi</span></td></tr>
-            </tbody>
-          </table></div>
-        </div>
-        <div class="sec">
-          <div class="sec-hd"><span class="tm">13:30</span><span class="nm">Section-3 3000m</span><span class="chip jpn">JPN 5名</span><span class="ct">全12名</span></div>
-          <div class="tbl"><table class="mid">
-            <thead><tr><th>種目</th><th class="num">No.</th><th>選手</th></tr></thead>
-            <tbody>
-              <tr class="jp"><td>女子ジュニア 14-15歳 3000m BF</td><td class="num">16</td><td><span class="jn">兼田 笑那</span><span class="ro">Kaneda Ena</span></td></tr>
-              <tr class="jp"><td>女子 3000m BF</td><td class="num">17</td><td><span class="jn">山本 美苗</span><span class="ro">Yamamoto Minae</span></td></tr>
-              <tr class="jp"><td>女子 3000m BF</td><td class="num">18</td><td><span class="jn">小島 美貴</span><span class="ro">Kojima Miki</span></td></tr>
-              <tr class="jp"><td>男子ジュニア 16-17歳 3000m BF</td><td class="num">21</td><td><span class="jn">村上 蓮</span><span class="ro">Murakami Ren</span></td></tr>
-              <tr class="jp"><td>男子 3000m BF</td><td class="num">22</td><td><span class="jn">藤木 萌人</span><span class="ro">Fujiki Moeto</span></td></tr>
-            </tbody>
-          </table></div>
-        </div>
-        <p class="lead">BF = ビーフィン(クロールで泳ぎ、スノーケル必須)、SF = モノフィン(泳法自由、スノーケル必須)。No.はプログラムの「Athlete Master Entry ref」の番号です。同じ組の他国の選手は<a href="#entry" data-goto="entry">エントリーリスト</a>で見られます。</p>
+        <p class="lead" style="margin-bottom:12px">会場に掲示された結果表(11/1)の記録です。日本選手13名全員の記録が出ています。</p>
+        <div id="jp-res"></div>
+        <p class="lead">結果表に書かれた時刻は Section-2 が 13:00、Section-3 が 13:45 です(プログラムでは 12:45、13:30)。Section-1 の結果表は、まだ届いていません。BF = ビーフィン、SF = モノフィン。</p>
       </div>
 
       <div class="tp" role="tabpanel" data-p="entry">
-        <p class="lead" style="margin-bottom:10px">大会プログラム(Ver8v4)に載っている全37名のスタートリストです。日本選手(JPN)の行を赤で強調しています。</p>
+        <p class="lead" style="margin-bottom:10px">大会プログラム(Ver8v4)に載っている全37名のスタートリストに、会場に掲示された結果を加えました。日本選手(JPN)の行を赤で強調しています。Section-1 の結果は、まだ届いていません。</p>
         <div class="mcats" id="ent-filter" style="margin-bottom:12px">
           <button type="button" data-f="all" aria-pressed="true">全選手</button>
           <button type="button" data-f="jpn" aria-pressed="false">JPNのみ</button>
@@ -1267,8 +1352,11 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   </div>
 </div>
 
+<nav class="bnav" aria-label="メニュー"><button type="button" data-b="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>ホーム</button><button type="button" data-b="schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>予定</button><button type="button" data-b="events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg>大会・結果</button><button type="button" data-b="travel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16l20-7-3-2-7 2-5-4-2 1 3 5-4 1-2-1-1 1z"/><path d="M3 21h18"/></svg>移動</button><button type="button" data-b="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>その他</button></nav>
+<div class="sheet-bg" id="sheet-bg" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-label="その他のメニュー"><div class="grab"></div><h2>その他のページ</h2><div class="tiles"><a class="tile" href="#members" data-goto="members"><b>参加者</b><span>区分・種目・結果</span></a><a class="tile gold" href="#stay" data-goto="stay"><b>宿泊</b><span>ホテル・部屋割り</span></a><a class="tile gold" href="#dinner" data-goto="dinner"><b>夕食</b><span>オーダー・メニュー</span></a><a class="tile" href="#map" data-goto="map"><b>地図</b><span>ホテル・会場・お店</span></a><a class="tile ok" href="#hk" data-goto="hk"><b>香港情報</b><span>通貨・交通・マナー</span></a><a class="tile" href="#me" data-goto="home&gt;me"><b>わたしの動き</b><span>名前を選んで確認</span></a></div></div>
 <div class="wrap">
-  <div class="foot">情報源: 大会スケジュールと附加競賽規程(香港潜水総会)、大会プログラム(Ver8v4・1v5)、フライトスケジュール、エントリーリスト(訂正版 ver.1)、LINEグループ「2026HongKong OWS」(10/14〜10/27)。主催側の最新案内が優先されます。</div>
+  <div class="foot">情報源: 大会スケジュールと附加競賽規程(香港潜水総会)、大会プログラム(Ver8v4・1v5)、会場の結果表(11/1)、フライトスケジュール、エントリーリスト(訂正版 ver.1)、LINEグループ「2026HongKong OWS」(10/14〜11/1)。主催側の最新案内が優先されます。</div>
 </div>
 
 <script>
@@ -1390,6 +1478,17 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     {s:'3', ev:'男子ジュニア 16-17歳 3000m BF', en:'Junior Men (16-17) 3000m BF', a:[[21,'JPN','Murakami','Ren','村上 蓮'],[30,'CHN','Zhao','Wenze'],[32,'CHN','Wu','Jiapeng'],[33,'CHN','Chen','Zhiyuan']]},
     {s:'3', ev:'男子 3000m BF', en:'Men 3000m BF', a:[[22,'JPN','Fujiki','Moeto','藤木 萌人'],[31,'CHN','Han','Bingyan']]}
   ];
+  /* 会場掲示の結果表(11/1)。No.: [記録, 順位] */
+  var RES = {
+    6:["34'20.23\"",1], 2:["42'42.94\"",1], 16:["46'50.06\"",1], 17:["39'37.31\"",1], 18:["42'25.23\"",2],
+    34:["47'06.41\"",1], 21:["41'04.94\"",1], 32:["41'12.01\"",2], 30:["45'44.48\"",3], 33:["1:00'40\"",4],
+    22:["37'10.69\"",1], 31:["43'17.66\"",2],
+    37:["15'55.38\"",1], 36:["18'28.50\"",2], 24:["13'07.28\"",1], 29:["16'49.50\"",2], 38:["19'00.88\"",1], 28:["17'35.88\"",1],
+    23:["11'19.88\"",1], 25:["11'18.83\"",1], 26:["14'39.52\"",2], 27:["12'52.28\"",1], 19:["20'02.00\"",1], 35:["15'02.88\"",1], 20:["17'03.24\"",2]
+  };
+  function rkHtml(no) { var r = RES[no]; return r ? '<span class="rk' + (r[1] === 1 ? ' r1' : '') + '">' + r[1] + '位</span>' : '<span style="color:var(--muted)">—</span>'; }
+  function resHtml(no) { var r = RES[no]; return r ? esc(r[0]) : '<span style="color:var(--muted);font-weight:500">—</span>'; }
+  function byRank(a, b) { var x = RES[a[0]], y = RES[b[0]]; if (x && y) return x[1] - y[1]; return 0; }
   function natChip(c){ return '<span class="chip ' + (c === 'JPN' ? 'jpn' : 'nat') + '">' + c + '</span>'; }
   function renderEntry(f) {
     var box = document.getElementById('ent-list'); if (!box) return;
@@ -1398,20 +1497,20 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       var evs = ENTRY.filter(function (e) { return e.s === s; });
       var all = 0, jp = 0, body = '';
       evs.forEach(function (e) {
-        var rows = e.a.filter(function (a) { return f !== 'jpn' || a[1] === 'JPN'; });
+        var rows = e.a.filter(function (a) { return f !== 'jpn' || a[1] === 'JPN'; }).slice().sort(byRank);
         all += e.a.length; jp += e.a.filter(function (a) { return a[1] === 'JPN'; }).length;
         if (!rows.length) return;
-        body += '<tr class="evh"><td colspan="3">' + esc(e.ev) + ' <span style="font-weight:500">' + esc(e.en) + '</span></td></tr>';
+        body += '<tr class="evh"><td colspan="4">' + esc(e.ev) + ' <span style="font-weight:500">' + esc(e.en) + '</span></td></tr>';
         rows.forEach(function (a) {
           var j = a[1] === 'JPN';
-          body += '<tr' + (j ? ' class="jp"' : '') + '><td class="num">' + a[0] + '</td><td>' + natChip(a[1]) + '</td><td>' +
-            (j ? '<span class="jn">' + esc(a[4]) + '</span><span class="ro">' + esc(a[2] + ' ' + a[3]) + '</span>' : esc(a[2] + ' ' + a[3])) + '</td></tr>';
+          body += '<tr' + (j ? ' class="jp"' : '') + '><td class="num">' + a[0] + '</td><td>' + natChip(a[1]) + ' ' +
+            (j ? '<span class="jn">' + esc(a[4]) + '</span><span class="ro">' + esc(a[2] + ' ' + a[3]) + '</span>' : esc(a[2] + ' ' + a[3])) + '</td><td class="res">' + resHtml(a[0]) + '</td><td>' + rkHtml(a[0]) + '</td></tr>';
         });
       });
       var S = SECTIONS[s];
       h += '<div class="sec"><div class="sec-hd"><span class="tm">' + S.t + '</span><span class="nm">' + S.nm + '</span>' +
         (jp ? '<span class="chip jpn">JPN ' + jp + '名</span>' : '') + '<span class="ct">全' + all + '名' + (jp ? '' : '・日本選手の出場なし') + '</span></div>';
-      h += body ? '<div class="tbl"><table><thead><tr><th class="num">No.</th><th>国・地域</th><th>選手</th></tr></thead><tbody>' + body + '</tbody></table></div>' : '';
+      h += body ? '<div class="tbl"><table><thead><tr><th class="num">No.</th><th>国・選手</th><th>記録</th><th>順位</th></tr></thead><tbody>' + body + '</tbody></table></div>' : '';
       h += '</div>';
     });
     box.innerHTML = h;
@@ -1425,6 +1524,22 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     });
     renderEntry('all');
   }
+  (function () {
+    var box = document.getElementById('jp-res'); if (!box) return;
+    var h = '';
+    ['2','3'].forEach(function (s) {
+      var rows = '';
+      ENTRY.filter(function (e) { return e.s === s; }).forEach(function (e) {
+        e.a.filter(function (a) { return a[1] === 'JPN'; }).forEach(function (a) {
+          var r = RES[a[0]], n = e.a.length;
+          rows += '<tr class="jp"><td><span class="jn">' + esc(a[4]) + '</span><span class="ro">' + esc(e.ev) + '・出場 ' + n + '名</span></td><td class="res" style="text-align:right">' + resHtml(a[0]) + '<div style="margin-top:2px">' + rkHtml(a[0]) + '</div></td></tr>';
+        });
+      });
+      var S = SECTIONS[s];
+      h += '<div class="sec"><div class="sec-hd"><span class="nm">' + S.nm + '</span></div><div class="tbl"><table><thead><tr><th>選手・種目</th><th style="text-align:right">記録・順位</th></tr></thead><tbody>' + rows + '</tbody></table></div></div>';
+    });
+    box.innerHTML = h;
+  })();
 
   /* ---------- ホーム: 香港時間の今・次 ---------- */
   (function () {
@@ -1454,18 +1569,21 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       {s:T(11,1,18), e:T(11,1,19,50), t:'パーティ(食事)', p:'ホテル地下の会場', g:'schedule:d1'},
       {s:T(11,1,20), e:T(11,1,22), t:'トラムパーティー(ホテルロビーに集合)', p:'香港島', g:'schedule:d1', hl:1},
       {s:T(11,2,7,30), e:T(11,2,10), t:'朝食', p:'ホテル', g:'schedule:d2'},
+      {s:T(11,2,9,45), t:'グループ1 ホテル発(Korea Teamと一緒)', j:'山本・石本・小島', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
       {s:T(11,2,11), t:'チェックアウト(11:00まで)', p:'チャーターハウス・ホテル', g:'schedule:d2', hl:1},
       {s:T(11,2,12), e:T(11,2,13,30), t:'昼食', p:'ホテル', g:'schedule:d2'},
       {s:T(11,2,12,55), t:'山本 出発(UO638 福岡)', p:'T2', g:'travel>sec-dep', k:'出発'},
       {s:T(11,2,14), t:'石本 出発(UO650 成田)', p:'T2', g:'travel>sec-dep', k:'出発'},
       {s:T(11,2,16,40), t:'山下 出発(CX502 関西)', p:'T1', g:'travel>sec-dep', k:'出発'},
       {s:T(11,2,17,55), t:'村上 出発(UO622 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
-      {s:T(11,2,18), t:'空港への送迎 ① 18:00 ホテル発', p:'チャーターハウス・ホテル', g:'travel>sec-night'},
-      {s:T(11,2,20,30), t:'空港への送迎 ② 20:30 ホテル発', p:'チャーターハウス・ホテル', g:'travel>sec-night'},
+      {s:T(11,2,13,30), t:'グループ2 ホテル発', j:'山下家・村上', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
+      {s:T(11,2,20), t:'グループ3 ホテル発', j:'堀口・藤木・川久保', p:'チャーターハウス・ホテル', g:'travel>sec-night', hl:1},
+      {s:T(11,2,20,30), e:T(11,2,21), t:'グループ4・5 空港で荷物を受け取り', j:'兼田(T2 UOカウンター近く)・長田(T1 チェックインカウンター近く)', p:'香港国際空港', g:'travel>sec-night', hl:1},
       {s:T(11,2,23,55), t:'堀口・藤木・川久保・兼田佑子・兼田笑那 出発(UO624 羽田)', p:'T2', g:'travel>sec-dep', k:'出発'},
       {s:T(11,3,0,15), t:'長田 出発(NH814 羽田)', p:'T1', g:'travel>sec-dep', k:'出発'},
       {s:T(11,3,16,40), t:'工藤・仲間 出発(CX502 関西)', p:'T1', g:'travel>sec-dep', k:'出発'}
     ];
+    EV.sort(function (a, b) { return a.s - b.s; });
     var DAYS = [[10,30,'10/30 金'],[10,31,'10/31 土'],[11,1,'11/1 日 大会'],[11,2,'11/2 月'],[11,3,'11/3 火']];
     var WD = ['日','月','火','水','木','金','土'];
     function now() { return window.__hkNow || Date.now(); }
@@ -1531,6 +1649,81 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     document.addEventListener('visibilitychange', function () { if (!document.hidden) tick(); });
   })();
 
+  /* ---------- 帰国グループ・わたしの動き ---------- */
+  (function () {
+    var G = {
+      1:{h:'9:45 ホテル発', sub:'Korea Teamと一緒', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト'],['9:45','ホテル発(Korea Teamと一緒)',1]]},
+      2:{h:'13:30 ホテル発', sub:'チェックアウト後、ホテルでランチ', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト'],['12:00 – 13:30','ホテルでランチ'],['13:30','ホテル発',1]]},
+      3:{h:'20:00 ホテル発', sub:'チェックアウト後フリー。ホテルに戻って夕食後に出発', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['','ホテルに戻って夕食'],['20:00','ホテル発',1]]},
+      4:{h:'チェックアウト後フリー', sub:'荷物は空港T2で受け取り', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['20:30 – 21:00','空港T2のUOチェックインカウンター近くで、グループ3の同行スタッフから荷物を受け取る',1]]},
+      5:{h:'チェックアウト後フリー', sub:'荷物は空港T1で受け取り', steps:[['7:30 – 10:00','朝食(ホテル)'],['11:00まで','チェックアウト。荷物をフロント(または香港連盟スタッフ)に預ける'],['','フリー'],['20:30 – 21:00','空港T1のチェックインカウンター近くで、香港連盟スタッフから荷物を受け取る',1]]},
+      6:{h:'11/3 各自で空港へ', sub:'11/2 チェックアウト後フリー', steps:[['11/2 7:30 – 10:00','朝食(ホテル)'],['11/2 11:00まで','チェックアウト'],['11/2','フリー'],['11/3','自分自身で空港へ',1]]}
+    };
+    var ME = [
+      {n:'山本 美苗', no:17, g:1, fl:'UO638', d:'11/2', t:'12:55', to:'福岡', tm:'T2'},
+      {n:'石本 清嗣', no:27, g:1, fl:'UO650', d:'11/2', t:'14:00', to:'成田', tm:'T2'},
+      {n:'小島 美貴', no:18, g:1, fl:'', d:'', t:'', to:'', tm:'T1'},
+      {n:'山下 哲史', no:25, g:2, fl:'CX502', d:'11/2', t:'16:40', to:'関西', tm:'T1', fam:'山下家'},
+      {n:'村上 蓮', no:21, g:2, fl:'UO622', d:'11/2', t:'17:55', to:'羽田', tm:'T2'},
+      {n:'堀口 裕太', no:23, g:3, fl:'UO624', d:'11/2', t:'23:55', to:'羽田', tm:'T2'},
+      {n:'藤木 萌人', no:22, g:3, fl:'UO624', d:'11/2', t:'23:55', to:'羽田', tm:'T2'},
+      {n:'川久保 清志', no:28, g:3, fl:'UO624', d:'11/2', t:'23:55', to:'羽田', tm:'T2'},
+      {n:'兼田 佑子', no:20, g:4, fl:'UO624', d:'11/2', t:'23:55', to:'羽田', tm:'T2'},
+      {n:'兼田 笑那', no:16, g:4, fl:'UO624', d:'11/2', t:'23:55', to:'羽田', tm:'T2'},
+      {n:'長田 和也', no:24, g:5, fl:'NH814', d:'11/3', t:'0:15', to:'羽田', tm:'T1'},
+      {n:'工藤 悠介', no:26, g:6, fl:'CX502', d:'11/3', t:'16:40', to:'関西', tm:'T1'},
+      {n:'仲間 麗美', no:19, g:6, fl:'CX502', d:'11/3', t:'16:40', to:'関西', tm:'T1'}
+    ];
+    function evOf(no) { var r = null; ENTRY.forEach(function (e) { e.a.forEach(function (a) { if (a[0] === no) r = [e, a]; }); }); return r; }
+    function flightTxt(m) { return m.fl ? m.d + ' ' + m.t + ' ' + m.fl + ' ' + m.to + '行き' : '便名・時刻は未確認'; }
+    function termChip(t) { return '<span class="chip ' + (t === 'T2' ? 'ok' : 'info') + '">' + t + '</span>'; }
+
+    /* グループ一覧 */
+    var gl = document.getElementById('grp-list');
+    if (gl) {
+      gl.innerHTML = [1,2,3,4,5,6].map(function (k) {
+        var g = G[k], ms = ME.filter(function (m) { return m.g === k; });
+        return '<div class="panel"><div class="h3">グループ' + k + (k === 6 ? '(11/3)' : '') + ' <span class="tm">' + g.h + '</span></div>' +
+          '<div class="who">' + ms.map(function (m) { return '<div><b>' + esc(m.fam || m.n) + '</b> ' + (m.fl ? esc(m.t + ' ' + m.fl) : '<span class="chip pending">便・時刻 未確認</span>') + ' ' + termChip(m.tm) + (m.d === '11/3' ? ' <span class="ro" style="display:inline">11/3</span>' : '') + '</div>'; }).join('') + '</div>' +
+          '<p style="font-size:13.5px;color:var(--muted)">' + esc(g.sub) + '</p></div>';
+      }).join('');
+    }
+
+    /* わたしの動き */
+    var pick = document.getElementById('me-pick'), card = document.getElementById('me-card');
+    if (!pick) return;
+    var KEY = 'hkows-me', cur = null;
+    try { cur = localStorage.getItem(KEY); } catch (e) {}
+    pick.innerHTML = ME.map(function (m) { return '<button type="button" data-n="' + esc(m.n) + '" aria-pressed="false">' + esc(m.n) + '</button>'; }).join('');
+    function render() {
+      [].forEach.call(pick.children, function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-n') === cur)); });
+      var m = ME.filter(function (x) { return x.n === cur; })[0];
+      if (!m) { card.innerHTML = '<p class="lead">名前を選ぶと、レース結果と帰国日の動きが表示されます。選んだ名前は、この端末に保存されます。</p>'; return; }
+      var g = G[m.g], ea = evOf(m.no), r = RES[m.no];
+      var steps = g.steps.map(function (s) { return '<li' + (s[2] ? ' class="key"' : '') + '>' + (s[0] ? '<span class="t">' + esc(s[0]) + '</span>' : '') + esc(s[1]) + '</li>'; }).join('');
+      steps += '<li class="key"><span class="t">' + (m.fl ? esc(m.d + ' ' + m.t) : '時刻未確認') + '</span>' + (m.fl ? esc(m.fl + ' ' + m.to + '行き') : '便名未確認') + ' ' + termChip(m.tm) + '</li>';
+      var notes = [];
+      if (m.fl.indexOf('UO') === 0) { notes.push('UO(香港エクスプレス)便です。必ず忘れないうちに<b>オンラインチェックイン</b>をしておいてください。'); notes.push('<b>ターミナル2(T2)</b>からの出発です。'); }
+      notes.push('荷物に、お渡しした<b>赤いタグ</b>をつけておいてください。');
+      if (m.g <= 3) notes.push('空港へ行くのがバスか車かによって、T1で降りて歩いて移動するか、直接T2へ行くかが変わります。<b>同行スタッフの案内に従ってください。</b>');
+      if (!m.fl) notes.push('便名と出発時刻は、このページではまだ確認できていません。');
+      card.innerHTML = '<div class="mecard"><div class="mh"><b>' + esc(m.n) + '</b><span>' + (m.fam ? esc(m.fam) + '・' : '') + '帰国グループ' + m.g + '</span></div><div class="mb">' +
+        '<div class="blk"><h3>11/1 レース結果</h3>' + (ea ? '<div style="font-size:14px">' + esc(ea[0].ev) + '(出場 ' + ea[0].a.length + '名)</div>' : '') +
+          (r ? '<div><span class="big2">' + esc(r[0]) + '</span> ' + rkHtml(m.no) + '</div>' : '<div class="lead">結果は未掲載です。</div>') + '</div>' +
+        '<div class="blk"><h3>帰国日の動き(' + (m.g === 6 ? '11/2 – 11/3' : '11/2') + ')</h3><ul class="steps2">' + steps + '</ul></div>' +
+        '<div class="blk"><h3>注意事項</h3><ul class="plain">' + notes.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div>' +
+        '<a class="go" href="#" data-goto="travel>sec-night" style="font-size:13px;font-weight:700">帰国グループの一覧を見る</a>' +
+        '</div></div>';
+    }
+    pick.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      cur = b.getAttribute('data-n') === cur ? null : b.getAttribute('data-n');
+      try { cur ? localStorage.setItem(KEY, cur) : localStorage.removeItem(KEY); } catch (err) {}
+      render();
+    });
+    render();
+  })();
+
   /* ---------- 参加者 ---------- */
   document.querySelectorAll('[data-members]').forEach(function (box) {
     var key = box.getAttribute('data-members');
@@ -1540,7 +1733,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     rows.forEach(function (m) {
       var S = SECTIONS[m.s];
       h += '<tr>' + (showCat ? '<td>' + GNAME[m.g] + '</td>' : '') + '<td><b>' + esc(m.n) + '</b> <span class="chip jpn">JPN</span><span class="ro">' + esc(m.r) + '</span></td>' +
-        '<td>' + esc(m.ev) + '<span class="ro">No. ' + m.no + '</span></td>' +
+        '<td>' + esc(m.ev) + '<span class="ro">No. ' + m.no + (RES[m.no] ? '・' + esc(RES[m.no][0]) + '・' + RES[m.no][1] + '位' : '') + '</span></td>' +
         '<td class="num"><b>11/1 ' + S.t + '</b><span class="ro">' + S.nm.replace(/ .*/, '') + '</span></td><td>' +
         (m.fam ? '<span class="chip ok">あり</span>' : '—') + '</td></tr>';
     });
@@ -1616,7 +1809,29 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
   var top = initSet(document.querySelector('.top-set'));
   var mapBox = document.querySelector('.map');
   var _show = top._show;
-  top._show = function (id) { _show(id); if (id === 'map' && mapBox) { mapBox.scrollLeft = (mapBox.scrollWidth - mapBox.clientWidth) * 0.6; } };
+  var MAINB = ['home', 'schedule', 'events', 'travel'];
+  function closeSheet() { var s = document.getElementById('sheet'); if (s) { s.hidden = true; document.getElementById('sheet-bg').hidden = true; } }
+  top._show = function (id) {
+    _show(id); if (id === 'map' && mapBox) { mapBox.scrollLeft = (mapBox.scrollWidth - mapBox.clientWidth) * 0.6; }
+    document.body.classList.toggle('on-home', id === 'home');
+    var cur = MAINB.indexOf(id) >= 0 ? id : 'more';
+    [].forEach.call(document.querySelectorAll('.bnav button'), function (b) { if (b.getAttribute('data-b') === cur) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+    closeSheet();
+  };
+  document.body.classList.add('on-home');
+  (function () {
+    var bn = document.querySelector('.bnav'); if (!bn) return;
+    bn.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var k = b.getAttribute('data-b');
+      if (k === 'more') { var s = document.getElementById('sheet'), open = s.hidden; s.hidden = !open; document.getElementById('sheet-bg').hidden = !open; return; }
+      top._show(k);
+      try { history.replaceState(null, '', '#' + k); } catch (err) {}
+      window.scrollTo(0, 0);
+    });
+    document.getElementById('sheet-bg').addEventListener('click', closeSheet);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+  })();
   [].forEach.call(document.querySelectorAll('.top-set > .tp .tabset'), function (s) { initSet(s); });
   var dinner = document.querySelector('[data-p="dinner"] .tabset');
   var events = document.querySelector('[data-p="events"] .tabset');
@@ -1647,7 +1862,7 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
     var hs = ALIAS[g] ? g : g.split(/[:>]/)[0];
     try { history.replaceState(null, '', '#' + hs); } catch (err) {}
     if (r !== true) { window.scrollTo(0, Math.max(0, r.getBoundingClientRect().top + window.pageYOffset - navH() - 10)); return; }
-    var nav = document.querySelector('.top-nav'); if (nav) { window.scrollTo(0, Math.max(0, nav.parentElement.offsetTop - 4)); }
+    window.scrollTo(0, 0);
   });
   window.addEventListener('hashchange', route);
   route();
@@ -1730,6 +1945,18 @@ tr.evh td { background: var(--bg); font-size: 12.5px; font-weight: 700; color: v
       };
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, fallback); } else { fallback(); }
     });
+  });
+
+  /* ---------- スマホでは表をカード型に ---------- */
+  [].forEach.call(document.querySelectorAll('.tbl table'), function (t) {
+    if (t.closest('#ent-list, #jp-res') || t.classList.contains('cmp')) return;
+    var ths = t.querySelectorAll('thead th'); if (ths.length < 3) return;
+    var labels = [].map.call(ths, function (th) { return th.textContent.trim(); });
+    var ok = true;
+    [].forEach.call(t.querySelectorAll('tbody tr'), function (tr) { if (tr.querySelector('[colspan]') || tr.children.length !== labels.length) ok = false; });
+    if (!ok) return;
+    [].forEach.call(t.querySelectorAll('tbody tr'), function (tr) { [].forEach.call(tr.children, function (td, i) { td.setAttribute('data-label', labels[i]); }); });
+    t.classList.add('stk');
   });
 })();
 </script>
